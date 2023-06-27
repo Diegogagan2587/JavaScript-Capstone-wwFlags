@@ -15,10 +15,12 @@ const popUpCard = `
 
 const popUpFather = document.querySelector('.pop-up')
 
-const displayPopUp = (father = popUpFather, popUpElem = PopUp) => {
-    console.log('we need to remove hide from ',father.classList)
-    father.classList.remove('hide');
-    father.innerHTML = popUpElem;
+const displayPopUp = () => {
+    console.log('runing displayPopUp')
+    console.log('we need to remove hide from ', popUpFather);
+    popUpFather.innerHTML = popUpCard;
+    popUpFather.classList.remove('hide');
+    
 }
 
 export {displayPopUp, popUpCard, popUpFather } ;
