@@ -23,3 +23,10 @@ nav {
   display: flex;
   gap: 1rem;
 }
+
+/* ------Footer Section-------- */
+footer {
+  margin-top: 90%;
+  display: flex;
+  justify-content: center;
+}
