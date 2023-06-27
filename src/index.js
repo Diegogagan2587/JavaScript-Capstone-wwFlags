@@ -1,6 +1,6 @@
 import './style.css';
 import './style/pop-up.css'
-import { displayPopUp, popUpCard, popUpFather } from './modules/pop_up.js';
+import { displayPopUp } from './modules/pop_up_display.js';
 
 const getCountries = async () => {
   const ingredients = 'https://restcountries.com/v3.1/all?fields=name,capital,area,population,subregion,flags';
@@ -32,6 +32,7 @@ const displayCard = async () => {
 
       const commentBtn = document.createElement('button');
       commentBtn.className = 'commentBtn';
+      commentBtn.addEventListener('click', displayPopUp);
 
       const countryName = document.createElement('p');
       countryName.className = 'conutryName';
@@ -96,4 +97,3 @@ const displayCard = async () => {
 };
 
 displayCard(); // Call the function without exporting it
-
