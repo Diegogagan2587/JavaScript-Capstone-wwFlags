@@ -1,11 +1,26 @@
 * {
-    border: 1px solid green;
-}
-
-h1 {
-    color:red;
-}
-
-.hello {
-    background-color: blueviolet;
-}
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style: none;
+    color: #222;
+  }
+  
+  .header {
+    display: flex;
+    margin: 0 auto;
+  }
+  
+  nav {
+    display: flex;
+    gap: 2rem;
+    margin: 0 auto;
+  }
+  
+  .nav-list-container {
+    display: flex;
+    gap: 1rem;
+  }
+  
