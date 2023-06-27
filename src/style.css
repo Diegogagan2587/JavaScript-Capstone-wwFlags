@@ -24,9 +24,59 @@ nav {
   gap: 1rem;
 }
 
+.main-general-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 3rem;
+  column-gap: 3rem;
+}
+
+.cardContainer {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  padding: 2rem;
+  border: solid rgb(0, 84, 117) 1px;
+  border-radius: 5px;
+}
+
+main {
+  background-color: lightblue;
+  margin: 0 auto;
+  padding: 10%;
+}
+
+img {
+  width: 100%;
+}
+
+.display-none {
+  display: none;
+}
+
+.nameLike {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.commentsBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  padding: 0.5rem 1rem;
+}
+
+.likeIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 /* ------Footer Section-------- */
 footer {
-  margin-top: 90%;
   display: flex;
   justify-content: center;
 }
