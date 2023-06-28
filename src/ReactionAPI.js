@@ -4,6 +4,22 @@ class ReactionAPI {
     this.baseURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${this.id}/`;
   }
 
+  addLike = async (countryID) => {
+    try {
+      await fetch(`${this.baseURL}likes`, {
+        method: 'POST',
+        body: JSON.stringify({
+          item_id: countryID,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+
   getLikeAmount = async (countryID) => {
     const all = await this.getAllLikeInfo();
     let result = await all.find((obj) => obj.item_id === countryID);
