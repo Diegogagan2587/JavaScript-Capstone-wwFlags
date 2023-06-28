@@ -1,5 +1,5 @@
 import './style.css';
-import './style/pop-up.css'
+import './style/pop-up.css';
 import { displayPopUp } from './modules/pop_up_display.js';
 
 const getCountries = async () => {
