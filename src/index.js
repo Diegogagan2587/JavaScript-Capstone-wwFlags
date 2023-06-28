@@ -1,12 +1,20 @@
 import './style.css';
 
 const getCountries = async () => {
-  const ingredients = 'https://restcountries.com/v3.1/all?fields=name,capital,area,population,subregion,flags';
-  const response = await fetch(ingredients);
+  const countryAPI = 'https://restcountries.com/v3.1/all?fields=name,capital,area,population,subregion,flags';
+  const response = await fetch(countryAPI);
   const json = await response.json();
   const data = json.slice(0, 100);
   return data;
 };
+
+// const likeId = async () => {
+//   const ingredients = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/yY6kgXiWJt5yNZEfFYH/likes/';
+//   const response = await fetch(`${ingredients}?item_id=${1}`);
+//   const data = await response.json();
+//   return data;
+// };
+// likeId();
 
 const displayCard = async () => {
   try {
@@ -34,6 +42,9 @@ const displayCard = async () => {
       const countryName = document.createElement('p');
       countryName.className = 'conutryName';
 
+      const likeNumber = document.createElement('p');
+      likeNumber.className = 'likeNumber';
+
       const likeIcon = document.createElement('ion-icon');
       likeIcon.className = 'likeIcon';
 
@@ -57,7 +68,10 @@ const displayCard = async () => {
 
       likeIcon.setAttribute('name', 'heart-outline');
 
+      likeNumber.textContent = '100 like';
+
       likeBtn.textContent = 'LIKE';
+
       commentBtn.textContent = 'COMMENTS';
 
       countryFlag.src = subData[i].flags.svg; // Access the flag URL from the current subData item
@@ -73,7 +87,8 @@ const displayCard = async () => {
       cardContainer.append(countryFlag);
 
       nameLike.append(countryName);
-      nameLike.append(likeIcon);
+      nameLike.append(likeNumber);
+      likeBtn.append(likeIcon);
 
       commentsBox.append(likeBtn);
       commentsBox.append(commentBtn);
@@ -93,4 +108,5 @@ const displayCard = async () => {
   }
 };
 
-displayCard(); // Call the function without exporting it
+displayCard();
+// Call the function without exporting it
