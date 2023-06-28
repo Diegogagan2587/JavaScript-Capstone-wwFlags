@@ -67,7 +67,9 @@ const displayCard = async (subData) => {
 
     commentBtn.textContent = 'COMMENTS';
 
-    countryFlag.src = subData.flags.png; // Access the flag URL from the current subData item
+    countryFlag.src = subData.flags.png;
+
+    // Access the flag URL from the current subData item
 
     itemliSecond.textContent = `Area: ${subData.area}`;
 
