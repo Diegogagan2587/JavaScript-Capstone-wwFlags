@@ -1,10 +1,10 @@
 console.log('pop up module is runing')
 
-const setCardData = (countryName) => {
+const setCardData = (countryName,imgUrl='#') => {
     const popUpCard = `
 <div class="card">
 <button type="button" class="close-pop-up">X</button>
-<img src="https://img.freepik.com/free-photo/flat-lay-circular-food-frame_23-2148708223.jpg?w=740&t=st=1687833862~exp=1687834462~hmac=c80cdb82e16bac82d49763c95e1e2913f9abe094690fb691b94d490b643b3ada" alt="description here">
+<img src="${imgUrl}" alt="description here">
 <h3>${countryName}</h3>
 <div class="characteristics">
     <span class="element">Fuel: Titanium</span>
@@ -24,8 +24,9 @@ const displayPopUp = (event) => {
 
     const cardContainer = event.target.parentNode.parentNode;
     const countryName = cardContainer.querySelector('.conutryName').innerText;
-    const popUpCard = setCardData(countryName);
-    
+    const imageURL = cardContainer.querySelector('.countryFlag-img').src;
+    const popUpCard = setCardData(countryName, imageURL);
+
     popUpFather.innerHTML = popUpCard;
 
     const closePopUpButton = popUpFather.querySelector('.close-pop-up')
