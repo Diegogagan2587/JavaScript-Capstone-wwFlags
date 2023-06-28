@@ -65,6 +65,12 @@ const displayCard = async (subData) => {
 
     likeBtn.textContent = 'LIKE';
 
+    likeBtn.addEventListener('click', async () => {
+      await react.addLike(subData.name.common);
+      const updatedLikeCount = await react.getLikeAmount(subData.name.common);
+      likeNumber.innerText = `${updatedLikeCount} likes`;
+    });
+
     commentBtn.textContent = 'COMMENTS';
 
     countryFlag.src = subData.flags.png;
