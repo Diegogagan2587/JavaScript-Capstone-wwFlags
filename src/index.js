@@ -1,5 +1,7 @@
 import './style.css';
 import ReactionAPI from './ReactionAPI.js';
+import './style/pop-up.css';
+import { displayPopUp } from './modules/pop_up_display.js';
 
 const getCountries = async () => {
   const countryAPI = 'https://restcountries.com/v3.1/all?fields=name,capital,area,population,subregion,flags';
@@ -29,6 +31,11 @@ const displayCard = async (subData) => {
 
     const countryName = document.createElement('p');
     countryName.className = 'conutryName';
+    
+    const commentBtn = document.createElement('button');
+    commentBtn.className = 'commentBtn';
+    commentBtn.addEventListener('click', displayPopUp);
+
 
     const likeNumber = document.createElement('p');
     likeNumber.className = 'likeNumber';
