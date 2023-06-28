@@ -26,16 +26,12 @@ const displayCard = async (subData) => {
     const likeBtn = document.createElement('button');
     likeBtn.className = 'conutryName';
 
-    const commentBtn = document.createElement('button');
-    commentBtn.className = 'commentBtn';
-
     const countryName = document.createElement('p');
     countryName.className = 'conutryName';
-    
+
     const commentBtn = document.createElement('button');
     commentBtn.className = 'commentBtn';
     commentBtn.addEventListener('click', displayPopUp);
-
 
     const likeNumber = document.createElement('p');
     likeNumber.className = 'likeNumber';
