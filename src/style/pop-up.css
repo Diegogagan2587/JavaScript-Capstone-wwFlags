@@ -20,6 +20,8 @@
   border: 2px solid gray;
   background-color: #fff;
   padding: 3%;
+  padding-left: 15%;
+  padding-right: 15%;
   display: flex;
   gap: 1.25vmin;
   flex-direction: column;
@@ -29,17 +31,18 @@
 .card .close-pop-up {
   color: red;
   font-weight: bold;
-  margin-right: 0;
+  margin-right: -20%;
   margin-left: auto;
 }
 
 .card img {
-  width: 70%;
+  width: 100%;
 }
 
 .card .characteristics {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .characteristics .element {
@@ -57,6 +60,26 @@
 
 .comments-box .comments-list {
   padding: 3%;
+}
+
+.add-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.add-comments input,textarea {
+  padding: 2%;
+}
+
+.add-comments textarea {
+  width: 100%;
+}
+
+.add-comments button {
+  width:fit-content;
 }
 
 /* ------End Pop-Up Section-------- */
