@@ -1,4 +1,4 @@
-import { getComments } from "./pop_up_comments_get.js"; //will return an array with objets
+import getComments from './pop_up_comments_get.js'; // will return an array with objets
 
 const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population) => {
   const popUpCard = `
@@ -40,27 +40,25 @@ const displayPopUp = async (event) => {
   const comments = await getComments(countryName);
 
   const popUpCard = setCardData(countryName, imageURL, countryName, area, subRegion, population);
-  
+
   popUpFather.innerHTML = popUpCard;
 
   const closePopUpButton = popUpFather.querySelector('.close-pop-up');
   const commentsContainer = popUpFather.querySelector('.comments-list');
 
-  if( comments.error) { 
-    popUpFather.querySelector('.comments-list').innerHTML = '<li>No Comments So far</li>'
+  if (comments.error) {
+    popUpFather.querySelector('.comments-list').innerHTML = '<li>No Comments So far</li>';
   } else {
-    comments.forEach(element => {
+    comments.forEach((element) => {
       const newComment = document.createElement('li');
       newComment.innerHTML = `
       <span class="date">${element.creation_date}</span>
       <span class="user">${element.username} :</span>
       <span class="comment">${element.comment}</span>
       `;
-      commentsContainer.appendChild(newComment)
+      commentsContainer.appendChild(newComment);
     });
   }
-
-
 
   popUpFather.classList.remove('hide');
 
