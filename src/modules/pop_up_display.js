@@ -34,13 +34,12 @@ const displayPopUp = async (event) => {
 
   const countryName = cardContainer.querySelector('.conutryName').innerText;
   const imageURL = cardContainer.querySelector('.countryFlag-img').src;
-  const id = cardContainer.querySelector('.itemliFirst').innerText;
   const area = cardContainer.querySelector('.itemliSecond').innerText;
   const subRegion = cardContainer.querySelector('.itemlithird').innerText;
   const population = cardContainer.querySelector('.itemliforth').innerText;
-  const comments = await getComments(id);
+  const comments = await getComments(countryName);
 
-  const popUpCard = setCardData(countryName, imageURL, id, area, subRegion, population);
+  const popUpCard = setCardData(countryName, imageURL, countryName, area, subRegion, population);
   
   popUpFather.innerHTML = popUpCard;
 
