@@ -10,6 +10,21 @@ const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population)
     <span class="element">${subRegion}</span>
     <span class="element">${population}</span>
 </div>
+<div class="comments-box">
+  <h3>Comments</h3>
+  <ul class="comments-list">
+    <li>
+        <span class="date">03/11/2021</span>
+        <span class="user">Alex Marin :</span>
+        <span class="comment">I'd love to buty it!</span>
+    </li>
+    <li>
+    <span class="date">03/12/2021</span>
+    <span class="user"> Mia Maring :</span>
+    <span class="comment">I'd love  it!</span>
+</li>
+  <ul>
+<div>
 </div>
 `;
   return popUpCard;
