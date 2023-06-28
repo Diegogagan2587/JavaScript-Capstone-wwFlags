@@ -38,7 +38,7 @@ const displayPopUp = async (event) => {
   const area = cardContainer.querySelector('.itemliSecond').innerText;
   const subRegion = cardContainer.querySelector('.itemlithird').innerText;
   const population = cardContainer.querySelector('.itemliforth').innerText;
-  const comments = await getComments('3000');//addding this
+  const comments = await getComments(id);
 
   const popUpCard = setCardData(countryName, imageURL, id, area, subRegion, population);
   
@@ -47,15 +47,21 @@ const displayPopUp = async (event) => {
   const closePopUpButton = popUpFather.querySelector('.close-pop-up');
   const commentsContainer = popUpFather.querySelector('.comments-list');
 
-  comments.forEach(element => {
-    const newComment = document.createElement('li');
-    newComment.innerHTML = `
-    <span class="date">${element.creation_date}</span>
-    <span class="user">${element.username} :</span>
-    <span class="comment">${element.comment}</span>
-    `;
-    commentsContainer.appendChild(newComment)
-  });
+  if( comments.error) { 
+    popUpFather.querySelector('.comments-list').innerHTML = '<li>No Comments So far</li>'
+  } else {
+    comments.forEach(element => {
+      const newComment = document.createElement('li');
+      newComment.innerHTML = `
+      <span class="date">${element.creation_date}</span>
+      <span class="user">${element.username} :</span>
+      <span class="comment">${element.comment}</span>
+      `;
+      commentsContainer.appendChild(newComment)
+    });
+  }
+
+
 
   popUpFather.classList.remove('hide');
 
