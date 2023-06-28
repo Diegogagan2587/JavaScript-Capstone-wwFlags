@@ -1,3 +1,5 @@
+import { getComments } from "./pop_up_comments_get.js"; //will return an array with objets
+
 const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population) => {
   const popUpCard = `
 <div class="card">
@@ -18,11 +20,6 @@ const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population)
         <span class="user">Alex Marin :</span>
         <span class="comment">I'd love to buty it!</span>
     </li>
-    <li>
-    <span class="date">03/12/2021</span>
-    <span class="user"> Mia Maring :</span>
-    <span class="comment">I'd love  it!</span>
-</li>
   <ul>
 <div>
 </div>
@@ -32,7 +29,7 @@ const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population)
 
 const popUpFather = document.querySelector('.pop-up');
 
-const displayPopUp = (event) => {
+const displayPopUp = async (event) => {
   const cardContainer = event.target.parentNode.parentNode;
 
   const countryName = cardContainer.querySelector('.conutryName').innerText;
@@ -41,12 +38,24 @@ const displayPopUp = (event) => {
   const area = cardContainer.querySelector('.itemliSecond').innerText;
   const subRegion = cardContainer.querySelector('.itemlithird').innerText;
   const population = cardContainer.querySelector('.itemliforth').innerText;
+  const comments = await getComments('3000');//addding this
 
   const popUpCard = setCardData(countryName, imageURL, id, area, subRegion, population);
-
+  
   popUpFather.innerHTML = popUpCard;
 
   const closePopUpButton = popUpFather.querySelector('.close-pop-up');
+  const commentsContainer = popUpFather.querySelector('.comments-list');
+
+  comments.forEach(element => {
+    const newComment = document.createElement('li');
+    newComment.innerHTML = `
+    <span class="date">${element.creation_date}</span>
+    <span class="user">${element.username} :</span>
+    <span class="comment">${element.comment}</span>
+    `;
+    commentsContainer.appendChild(newComment)
+  });
 
   popUpFather.classList.remove('hide');
 
