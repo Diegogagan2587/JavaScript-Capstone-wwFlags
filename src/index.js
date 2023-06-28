@@ -1,99 +1,117 @@
 import './style.css';
+import ReactionAPI from './ReactionAPI.js';
 import './style/pop-up.css';
 import { displayPopUp } from './modules/pop_up_display.js';
 
 const getCountries = async () => {
-  const ingredients = 'https://restcountries.com/v3.1/all?fields=name,capital,area,population,subregion,flags';
-  const response = await fetch(ingredients);
+  const countryAPI = 'https://restcountries.com/v3.1/all?fields=name,capital,area,population,subregion,flags';
+  const response = await fetch(countryAPI);
   const json = await response.json();
-  const data = json.slice(0, 100);
+  const data = json.slice(0, 99);
   return data;
 };
 
-const displayCard = async () => {
+const react = new ReactionAPI();
+const displayCard = async (subData) => {
   try {
-    const subData = await getCountries(); // Wait for the Promise to resolve and get the subData
-    const mainGeneralContainer = document.querySelector('.main-general-container');
-    for (let i = 0; i < subData.length; i += 1) {
-      const cardContainer = document.createElement('div');
-      cardContainer.className = 'cardContainer';
+    const cardContainer = document.createElement('div');
+    cardContainer.className = 'cardContainer';
 
-      const countryFlag = document.createElement('img');
-      countryFlag.className = 'countryFlag-img';
+    const countryFlag = document.createElement('img');
+    countryFlag.className = 'countryFlag-img';
 
-      const nameLike = document.createElement('div');
-      nameLike.className = 'nameLike';
+    const nameLike = document.createElement('div');
+    nameLike.className = 'nameLike';
 
-      const commentsBox = document.createElement('div');
-      commentsBox.className = 'commentsBox';
+    const likeBtn = document.createElement('button');
+    likeBtn.className = 'conutryName';
 
-      const likeBtn = document.createElement('button');
-      likeBtn.className = 'conutryName';
+    const countryName = document.createElement('p');
+    countryName.className = 'conutryName';
 
-      const commentBtn = document.createElement('button');
-      commentBtn.className = 'commentBtn';
-      commentBtn.addEventListener('click', displayPopUp);
+    const commentBtn = document.createElement('button');
+    commentBtn.className = 'commentBtn';
+    commentBtn.addEventListener('click', displayPopUp);
 
-      const countryName = document.createElement('p');
-      countryName.className = 'conutryName';
+    const likeNumber = document.createElement('p');
+    likeNumber.className = 'likeNumber';
 
-      const likeIcon = document.createElement('ion-icon');
-      likeIcon.className = 'likeIcon';
+    const likeIcon = document.createElement('ion-icon');
+    likeIcon.className = 'likeIcon';
 
-      const itemList = document.createElement('ul');
-      itemList.className = 'itemList';
-      itemList.classList.add('display-none');
+    const itemList = document.createElement('ul');
+    itemList.className = 'itemList';
+    itemList.classList.add('display-none');
 
-      const itemliZero = document.createElement('li');
-      itemliZero.className = 'itemliFirst';
+    const itemliSecond = document.createElement('li');
+    itemliSecond.className = 'itemliSecond';
 
-      const itemliSecond = document.createElement('li');
-      itemliSecond.className = 'itemliSecond';
+    const itemlithird = document.createElement('li');
+    itemlithird.className = 'itemlithird';
 
-      const itemlithird = document.createElement('li');
-      itemlithird.className = 'itemlithird';
+    const itemliforth = document.createElement('li');
+    itemliforth.className = 'itemliforth';
 
-      const itemliforth = document.createElement('li');
-      itemliforth.className = 'itemliforth';
+    countryName.textContent = `Name: ${subData.name.common}`;
 
-      countryName.textContent = `Name: ${subData[i].name.common}`;
+    likeIcon.setAttribute('name', 'heart-outline');
 
-      likeIcon.setAttribute('name', 'heart-outline');
+    const likeCount = await react.getLikeAmount(subData.name.common);
+    if (likeCount) {
+      likeNumber.innerText = `${likeCount} likes`;
+    } else {
+      likeNumber.textContent = 'no likes';
+    }
 
-      likeBtn.textContent = 'LIKE';
-      commentBtn.textContent = 'COMMENTS';
+    likeBtn.textContent = 'LIKE';
 
-      countryFlag.src = subData[i].flags.svg; // Access the flag URL from the current subData item
+    likeBtn.addEventListener('click', async () => {
+      await react.addLike(subData.name.common);
+      const updatedLikeCount = await react.getLikeAmount(subData.name.common);
+      likeNumber.innerText = `${updatedLikeCount} likes`;
+    });
 
-      itemliZero.textContent = `Id: ${i + 1}`;
+    commentBtn.textContent = 'COMMENTS';
 
-      itemliSecond.textContent = `Area: ${subData[i].area}`;
+    countryFlag.src = subData.flags.png;
 
-      itemlithird.textContent = `Subregion: ${subData[i].subregion} `;
+    // Access the flag URL from the current subData item
 
-      itemliforth.textContent = `Population: ${subData[i].population}`;
+    itemliSecond.textContent = `Area: ${subData.area}`;
 
-      cardContainer.append(countryFlag);
+    itemlithird.textContent = `Subregion: ${subData.subregion} `;
 
-      nameLike.append(countryName);
-      nameLike.append(likeIcon);
+    itemliforth.textContent = `Population: ${subData.population}`;
 
-      commentsBox.append(likeBtn);
-      commentsBox.append(commentBtn);
+    cardContainer.append(countryFlag);
 
-      itemList.appendChild(itemliZero);
-      itemList.appendChild(itemliSecond);
-      itemList.appendChild(itemlithird);
-      itemList.appendChild(itemliforth);
+    nameLike.append(countryName);
+    nameLike.append(likeNumber);
+    likeBtn.append(likeIcon);
 
-      cardContainer.append(nameLike);
-      cardContainer.append(commentsBox);
-      cardContainer.append(itemList);
-      mainGeneralContainer.append(cardContainer);
-    } return mainGeneralContainer;
+    itemList.appendChild(itemliSecond);
+    itemList.appendChild(itemlithird);
+    itemList.appendChild(itemliforth);
+
+    cardContainer.append(nameLike);
+    cardContainer.append(likeBtn);
+    cardContainer.append(commentBtn);
+    cardContainer.append(itemList);
+    return cardContainer;
   } catch (error) {
     return error;
   }
 };
 
-displayCard(); // Call the function without exporting it
+const displayAllCards = async () => {
+  const mainGeneralContainer = document.querySelector('.main-general-container');
+  const subData = await getCountries(); // Wait for the Promise to resolve and get the subData
+  subData.forEach(async (country) => {
+    const cardElement = await displayCard(country);
+    if (cardElement) {
+      mainGeneralContainer.appendChild(cardElement);
+    }
+  });
+};
+
+displayAllCards();
