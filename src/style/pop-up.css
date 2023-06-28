@@ -14,14 +14,14 @@
 }
 
 .pop-up .card {
-  width: 80vw;
+  width: 80vmin;
   margin-left: auto;
   margin-right: auto;
   border: 2px solid gray;
   background-color: #fff;
   padding: 3%;
   display: flex;
-  gap: 1.25vw;
+  gap: 1.25vmin;
   flex-direction: column;
   align-items: center;
 }
