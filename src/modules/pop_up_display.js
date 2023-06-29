@@ -31,8 +31,6 @@ const popUpFather = document.querySelector('.pop-up');
 
 const displayPopUp = async (event) => {
   const cardContainer = event.target.parentNode;
-  console.log(cardContainer)//remove after debuggin
-
   const countryName = cardContainer.querySelector('.conutryName').innerText;
   const imageURL = cardContainer.querySelector('.countryFlag-img').src;
   const area = cardContainer.querySelector('.itemliSecond').innerText;
