@@ -115,3 +115,12 @@ const displayAllCards = async () => {
 };
 
 displayAllCards();
+
+const cardItemCounter = async (getCountries) => {
+  const itemAmount = getCountries.length;
+  return itemAmount;
+};
+
+const cardsItemAmount = await cardItemCounter(await getCountries());
+const itemAmountplace = document.querySelector('.country-numbers');
+itemAmountplace.textContent = `Countries(${cardsItemAmount})`;
