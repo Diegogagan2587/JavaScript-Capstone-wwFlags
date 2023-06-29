@@ -2,13 +2,12 @@ import './style.css';
 import ReactionAPI from './ReactionAPI.js';
 import './style/pop-up.css';
 import { displayPopUp } from './modules/pop_up_display.js';
-import cardItemCounter from './cardCounter.js';
 
 const getCountries = async () => {
   const countryAPI = 'https://restcountries.com/v3.1/all?fields=name,capital,area,population,subregion,flags';
   const response = await fetch(countryAPI);
   const json = await response.json();
-  const data = json.slice(0, 99);
+  const data = json.slice(0, 10);
   return data;
 };
 
@@ -104,25 +103,33 @@ const displayCard = async (subData) => {
   }
 };
 
+const cardItemCounter = async (cardElements) => {
+  if (!cardElements) {
+    return 0;
+  }
+  const itemAmount = cardElements.length;
+  return itemAmount;
+};
+
 const displayAllCards = async () => {
   const mainGeneralContainer = document.querySelector('.main-general-container');
-  const subData = await getCountries(); // Wait for the Promise to resolve and get the subData
-  subData.forEach(async (country) => {
+  const subData = await getCountries();
+  const cardPromises = subData.map(async (country) => {
     const cardElement = await displayCard(country);
     if (cardElement) {
       mainGeneralContainer.appendChild(cardElement);
+      return cardElement;
     }
+    return 0;
   });
+  const cardElements = await Promise.all(cardPromises.filter(Boolean));
+
+  const cardsItemAmount = await cardItemCounter(cardElements);
+
+  const itemAmountPlace = document.querySelector('.country-numbers');
+  itemAmountPlace.textContent = `Countries (${cardsItemAmount})`;
+
   return mainGeneralContainer;
 };
 
 displayAllCards();
-
-const cardNumber = document.querySelectorAll('.cardContainer');
-
-const cardsItemAmount = await cardItemCounter(cardNumber);
-
-const itemAmountplace = document.querySelector('.country-numbers');
-itemAmountplace.textContent = `Countries(${cardsItemAmount})`;
-
-export default getCountries();
