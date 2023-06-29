@@ -2,6 +2,7 @@ import './style.css';
 import ReactionAPI from './ReactionAPI.js';
 import './style/pop-up.css';
 import { displayPopUp } from './modules/pop_up_display.js';
+import cardItemCounter from './cardCounter.js';
 
 const getCountries = async () => {
   const countryAPI = 'https://restcountries.com/v3.1/all?fields=name,capital,area,population,subregion,flags';
@@ -112,15 +113,16 @@ const displayAllCards = async () => {
       mainGeneralContainer.appendChild(cardElement);
     }
   });
+  return mainGeneralContainer;
 };
 
 displayAllCards();
 
-const cardItemCounter = async (getCountries) => {
-  const itemAmount = getCountries.length;
-  return itemAmount;
-};
+const cardNumber = document.querySelectorAll('.cardContainer');
 
-const cardsItemAmount = await cardItemCounter(await getCountries());
+const cardsItemAmount = await cardItemCounter(cardNumber);
+
 const itemAmountplace = document.querySelector('.country-numbers');
 itemAmountplace.textContent = `Countries(${cardsItemAmount})`;
+
+export default getCountries();
