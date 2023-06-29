@@ -176,11 +176,11 @@ npm run build;
 - Twitter: [@dieg02587](https://twitter.com/dieg02587)
 - LinkedIn: [Diego Vidal Lopez](https://www.linkedin.com/in/diego-vidal2587/?locale=en_US)
 
-👤 **Author2**
+👤 **Ali Baba**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/Alibaba2023)
+- Twitter: [@twitterhandle]( https://twitter.com/AliBabaHu2023)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ali-baba-hussaini-630607267/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
