@@ -94,9 +94,9 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
+> Do you want to take a look on live?
 
-- [Live Demo Link](https://google.com)
+- [Live Demo Link will be availabe soon](#)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -104,34 +104,26 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
+> Do you want to get a local copy of this repo?
 
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
 In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+- Code Editor
+- Browser
+- node
+- npm
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone git@github.com:Diegogagan2587/JavaScript-Capstone-Project.git
 ```
---->
 
 ### Install
 
