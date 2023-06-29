@@ -55,7 +55,7 @@ const displayPopUp = async (event) => {
   const commentsContainer = popUpFather.querySelector('.comments-list');
 
   if (comments.error) {
-    popUpFather.querySelector('.comments-list').innerHTML = '<li>No Comments So far</li>';
+    popUpFather.querySelector('.comments-list').innerHTML = '<p>No Comments So far</p>';
   } else {
     comments.forEach((element) => {
       const newComment = document.createElement('li');
