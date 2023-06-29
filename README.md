@@ -178,9 +178,9 @@ npm run build;
 
 👤 **Ali Baba**
 
-- GitHub: [@githubhandle](https://github.com/Alibaba2023)
-- Twitter: [@twitterhandle]( https://twitter.com/AliBabaHu2023)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ali-baba-hussaini-630607267/)
+- GitHub: [@Alibaba2023](https://github.com/Alibaba2023)
+- Twitter: [@AliBabaHu2023]( https://twitter.com/AliBabaHu2023)
+- LinkedIn: [Ali Baba Hussaini](https://www.linkedin.com/in/ali-baba-hussaini-630607267/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
