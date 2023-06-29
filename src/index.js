@@ -1,13 +1,14 @@
 import './style.css';
-import ReactionAPI from './ReactionAPI.js';
+import ReactionAPI from './modules/ReactionAPI.js';
 import './style/pop-up.css';
 import { displayPopUp } from './modules/pop_up_display.js';
+import cardItemCounter from './modules/itemCounter.js';
 
 const getCountries = async () => {
   const countryAPI = 'https://restcountries.com/v3.1/all?fields=name,capital,area,population,subregion,flags';
   const response = await fetch(countryAPI);
   const json = await response.json();
-  const data = json.slice(0, 100);
+  const data = json.slice(0, 12);
   return data;
 };
 
@@ -103,14 +104,6 @@ const displayCard = async (subData) => {
   }
 };
 
-const cardItemCounter = async (cardElements) => {
-  if (!cardElements) {
-    return 0;
-  }
-  const itemAmount = cardElements.length;
-  return itemAmount;
-};
-
 const displayAllCards = async () => {
   const mainGeneralContainer = document.querySelector('.main-general-container');
   const subData = await getCountries();
@@ -133,4 +126,5 @@ const displayAllCards = async () => {
 };
 
 displayAllCards();
+
 export default cardItemCounter();
