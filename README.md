@@ -151,25 +151,17 @@ previous command should start running the project on a local server.
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
 ```sh
-  bin/rails test test/models/article_test.rb
+  npm test
 ```
---->
 
 ### Deployment
 
-You can deploy this project using:
-
-<!--
-Example:
+You can bundle all fines running:
 
 ```sh
-
+npm run build;
 ```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
