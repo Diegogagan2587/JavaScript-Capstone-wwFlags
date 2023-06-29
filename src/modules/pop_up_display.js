@@ -1,3 +1,5 @@
+import getComments from './pop_up_comments_get.js'; // will return an array with objets
+
 import { postComments } from "./pop_up_comments_add.js";
 
 const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population) => {
@@ -6,7 +8,6 @@ const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population)
   <button type="button" class="close-pop-up">X</button>
   <img src="${imgUrl}" alt="description here">
   <h3>${countryName}</h3>
-
   <div class="characteristics">
       <span class="element">${id}</span>
       <span class="element">${area}</span>
@@ -26,11 +27,10 @@ const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population)
   </div>
 
   <form class="add-comments">
-      <input type="text" placeholder="Your name" id="your-name" >
-      <textarea placeholder="Your Insights" id="input-your-comments"></textarea>
-      <button type="button" class="submit-comment-btn">Comment</button type="button">
+    <input type="text" placeholder="Your name" id="your-name" >
+    <textarea placeholder="Your Insights" id="input-your-comments"></textarea>
+    <button type="button" class="submit-comment-btn">Comment</button type="button">
   </form>
-
 </div>
 `;
   return popUpCard;
@@ -38,21 +38,35 @@ const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population)
 
 const popUpFather = document.querySelector('.pop-up');
 
-const displayPopUp = (event) => {
-  const cardContainer = event.target.parentNode.parentNode;
-
+const displayPopUp = async (event) => {
+  const cardContainer = event.target.parentNode;
   const countryName = cardContainer.querySelector('.conutryName').innerText;
   const imageURL = cardContainer.querySelector('.countryFlag-img').src;
-  const id = cardContainer.querySelector('.itemliFirst').innerText;
   const area = cardContainer.querySelector('.itemliSecond').innerText;
   const subRegion = cardContainer.querySelector('.itemlithird').innerText;
   const population = cardContainer.querySelector('.itemliforth').innerText;
+  const comments = await getComments(countryName);
 
-  const popUpCard = setCardData(countryName, imageURL, id, area, subRegion, population);
+  const popUpCard = setCardData(countryName, imageURL, countryName, area, subRegion, population);
 
   popUpFather.innerHTML = popUpCard;
 
   const closePopUpButton = popUpFather.querySelector('.close-pop-up');
+  const commentsContainer = popUpFather.querySelector('.comments-list');
+
+  if (comments.error) {
+    popUpFather.querySelector('.comments-list').innerHTML = '<li>No Comments So far</li>';
+  } else {
+    comments.forEach((element) => {
+      const newComment = document.createElement('li');
+      newComment.innerHTML = `
+      <span class="date">${element.creation_date}</span>
+      <span class="user">${element.username} :</span>
+      <span class="comment">${element.comment}</span>
+      `;
+      commentsContainer.appendChild(newComment);
+    });
+  }
   const submitCommentButton = popUpFather.querySelector('.submit-comment-btn');
 
   popUpFather.classList.remove('hide');
