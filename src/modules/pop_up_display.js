@@ -67,13 +67,12 @@ const displayPopUp = async (event) => {
       commentsContainer.appendChild(newComment);
     });
   }
-/*start commeents counter*/
+  /* start commeents counter */
   const commentsCountercontainer = document.querySelector('#comments-counter');
   const counter = document.createElement('span');
   counter.innerText = `(${commentsCounter()})`;
   commentsCountercontainer.appendChild(counter);
-  /*finish comments counter*/
-
+  /* finish comments counter */
 
   const submitCommentButton = popUpFather.querySelector('.submit-comment-btn');
 
@@ -89,7 +88,6 @@ const displayPopUp = async (event) => {
     const comment = event.target.parentNode.querySelector('#input-your-comments').value;
     postComments(itemID, user, comment);
   });
-
 };
 
 export { displayPopUp, setCardData };
