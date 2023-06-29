@@ -4,20 +4,20 @@
 import commentsCounter from './pop_up_comments_counter.js';
 
 test('commentsCounter(nodeList ) should return 6', () => {
-    const container = document.createElement('ul')
-    container.innerHTML = `
+  const container = document.createElement('ul');
+  container.innerHTML = `
     <li>test</li>
     <li>test</li>
-    `
-    const list = container.querySelectorAll('li');
+    `;
+  const list = container.querySelectorAll('li');
   expect(commentsCounter(list)).toBe(2);
 });
 
 test('commentsCounter(nodeList ) should return 0', () => {
-    const container = document.createElement('ul')
-    container.innerHTML = `
-    `
-    const list = container.querySelectorAll('li');
+  const container = document.createElement('ul');
+  container.innerHTML = `
+    `;
+  const list = container.querySelectorAll('li');
   expect(commentsCounter(list)).toBe(0);
 });
 
