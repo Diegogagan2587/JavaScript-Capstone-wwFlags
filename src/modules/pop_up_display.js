@@ -70,7 +70,8 @@ const displayPopUp = async (event) => {
   /* start commeents counter */
   const commentsCountercontainer = document.querySelector('#comments-counter');
   const counter = document.createElement('span');
-  counter.innerText = `(${commentsCounter()})`;
+  const commentsList = document.querySelectorAll('.comments-list li');
+  counter.innerText = `(${commentsCounter(commentsList)})`;
   commentsCountercontainer.appendChild(counter);
   /* finish comments counter */
 
