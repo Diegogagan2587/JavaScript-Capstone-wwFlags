@@ -29,7 +29,6 @@
   align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
-  
 }
 
 .card .close-pop-up {
@@ -76,7 +75,8 @@
   width: 100%;
 }
 
-.add-comments input,textarea {
+.add-comments input,
+textarea {
   padding: 2%;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .add-comments button {
-  width:fit-content;
+  width: fit-content;
 }
 
 /* ------End Pop-Up Section-------- */

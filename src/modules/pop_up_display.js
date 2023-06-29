@@ -1,6 +1,6 @@
 import getComments from './pop_up_comments_get.js'; // will return an array with objets
 
-import { postComments } from "./pop_up_comments_add.js";
+import postComments from './pop_up_comments_add.js';
 
 const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population) => {
   const popUpCard = `
@@ -75,7 +75,7 @@ const displayPopUp = async (event) => {
     popUpFather.classList.add('hide');
   });
 
-  submitCommentButton.addEventListener('click',(event) => {
+  submitCommentButton.addEventListener('click', (event) => {
     const itemID = countryName;
     const user = event.target.parentNode.querySelector('#your-name').value;
     const comment = event.target.parentNode.querySelector('#input-your-comments').value;
