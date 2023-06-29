@@ -1,27 +1,36 @@
 import getComments from './pop_up_comments_get.js'; // will return an array with objets
 
+import postComments from './pop_up_comments_add.js';
+
 const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population) => {
   const popUpCard = `
 <div class="card">
-<button type="button" class="close-pop-up">X</button>
-<img src="${imgUrl}" alt="description here">
-<h3>${countryName}</h3>
-<div class="characteristics">
-    <span class="element">${id}</span>
-    <span class="element">${area}</span>
-    <span class="element">${subRegion}</span>
-    <span class="element">${population}</span>
-</div>
-<div class="comments-box">
-  <h3>Comments</h3>
-  <ul class="comments-list">
-    <li>
-        <span class="date">03/11/2021</span>
-        <span class="user">Alex Marin :</span>
-        <span class="comment">I'd love to buty it!</span>
-    </li>
-  <ul>
-<div>
+  <button type="button" class="close-pop-up">X</button>
+  <img src="${imgUrl}" alt="description here">
+  <h3>${countryName}</h3>
+  <div class="characteristics">
+      <span class="element">${id}</span>
+      <span class="element">${area}</span>
+      <span class="element">${subRegion}</span>
+      <span class="element">${population}</span>
+  </div>
+
+  <div class="comments-box">
+    <h3>Comments</h3>
+    <ul class="comments-list">
+      <li>
+          <span class="date">03/11/2021</span>
+          <span class="user">Alex Marin :</span>
+          <span class="comment">I'd love to buty it!</span>
+      </li>
+    </ul>
+  </div>
+
+  <form class="add-comments">
+    <input type="text" placeholder="Your name" id="your-name" >
+    <textarea placeholder="Your Insights" id="input-your-comments"></textarea>
+    <button type="button" class="submit-comment-btn">Comment</button type="button">
+  </form>
 </div>
 `;
   return popUpCard;
@@ -58,11 +67,19 @@ const displayPopUp = async (event) => {
       commentsContainer.appendChild(newComment);
     });
   }
+  const submitCommentButton = popUpFather.querySelector('.submit-comment-btn');
 
   popUpFather.classList.remove('hide');
 
   closePopUpButton.addEventListener('click', () => {
     popUpFather.classList.add('hide');
+  });
+
+  submitCommentButton.addEventListener('click', (event) => {
+    const itemID = countryName;
+    const user = event.target.parentNode.querySelector('#your-name').value;
+    const comment = event.target.parentNode.querySelector('#input-your-comments').value;
+    postComments(itemID, user, comment);
   });
 };
 
