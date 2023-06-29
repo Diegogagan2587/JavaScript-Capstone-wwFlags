@@ -7,7 +7,7 @@ const getCountries = async () => {
   const countryAPI = 'https://restcountries.com/v3.1/all?fields=name,capital,area,population,subregion,flags';
   const response = await fetch(countryAPI);
   const json = await response.json();
-  const data = json.slice(0, 10);
+  const data = json.slice(0, 100);
   return data;
 };
 
@@ -133,3 +133,4 @@ const displayAllCards = async () => {
 };
 
 displayAllCards();
+export default cardItemCounter();
