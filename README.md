@@ -50,23 +50,28 @@
 > Describe the tech stack and include only the relevant sections that apply to your project.
 
 <details>
+  <summary>Helper Tools</summary>
+  <ul>
+    <li><a href="https://webpack.js.org//">WebPack</a></li>
+    <li><a href="https://jestjs.io/">Jest</a></li>
+    <li><a href="https://babeljs.io/">Babel</a></li>
+  </ul>
+</details>
+<details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://developer.mozilla.org/es/docs/Web/HTML">HTML</a></li>
+    <li><a href="https://developer.mozilla.org/es/docs/Web/CSS">CSS</a></li>
+    <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript">JavaScript</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li><a href="https://pages.github.com/">Github Pages</a></li>
+    <li><a href="#">Countries API</a></li>
+    <li><a href="https://microverse.notion.site/Involvement-API-869e60b5ad104603aa6db59e08150270">Microverse Involvement API</a></li>
   </ul>
 </details>
 
@@ -74,11 +79,14 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
+> key features of the application.
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Make use of an API to post and retrieve Data**
+- **Pop-up Dynamically Generated**
+- **You can Add likes the country you prefer**
+- **You can leave a comment on the country you prefer**
+- **Display the current number of likes**
+- **Display the current number of comments**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
