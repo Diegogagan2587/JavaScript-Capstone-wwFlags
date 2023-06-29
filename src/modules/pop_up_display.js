@@ -1,6 +1,6 @@
 import getComments from './pop_up_comments_get.js'; // will return an array with objets
-
 import postComments from './pop_up_comments_add.js';
+import commentsCounter from './pop_up_comments_counter.js';
 
 const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population) => {
   const popUpCard = `
@@ -16,7 +16,7 @@ const setCardData = (countryName, imgUrl = '#', id, area, subRegion, population)
   </div>
 
   <div class="comments-box">
-    <h3>Comments</h3>
+    <h3>Comments<span id="comments-counter"></span></h3>
     <ul class="comments-list">
       <li>
           <span class="date">03/11/2021</span>
@@ -55,7 +55,7 @@ const displayPopUp = async (event) => {
   const commentsContainer = popUpFather.querySelector('.comments-list');
 
   if (comments.error) {
-    popUpFather.querySelector('.comments-list').innerHTML = '<li>No Comments So far</li>';
+    popUpFather.querySelector('.comments-list').innerHTML = '<p>No Comments So far</p>';
   } else {
     comments.forEach((element) => {
       const newComment = document.createElement('li');
@@ -67,6 +67,13 @@ const displayPopUp = async (event) => {
       commentsContainer.appendChild(newComment);
     });
   }
+  /* start commeents counter */
+  const commentsCountercontainer = document.querySelector('#comments-counter');
+  const counter = document.createElement('span');
+  counter.innerText = `(${commentsCounter()})`;
+  commentsCountercontainer.appendChild(counter);
+  /* finish comments counter */
+
   const submitCommentButton = popUpFather.querySelector('.submit-comment-btn');
 
   popUpFather.classList.remove('hide');
