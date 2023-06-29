@@ -16,6 +16,7 @@ const postComments = async (itemID,user,comment) => {
         }
     });
     const response = request.status;//status should be 201 wich means comment was created
+    location.reload();
 }
 
 export { postComments };
