@@ -109,7 +109,7 @@ footer {
 }
 
 @media screen and (max-width: 550px) {
-  nav{
+  nav {
     padding-left: 2%;
     font-size: inherit;
     width: 100%;
