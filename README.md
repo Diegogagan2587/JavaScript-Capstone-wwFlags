@@ -47,8 +47,6 @@ https://youtu.be/1iS0Mq1S6QE
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> We have used to build this project:
-
 <details>
   <summary>Helper Tools</summary>
   <ul>
@@ -79,8 +77,6 @@ https://youtu.be/1iS0Mq1S6QE
 
 ### Key Features <a name="key-features"></a>
 
-> key features of the application.
-
 - **Make use of an API to post and retrieve Data**
 - **Pop-up Dynamically Generated**
 - **You can Add likes the country you prefer**
@@ -94,8 +90,6 @@ https://youtu.be/1iS0Mq1S6QE
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Do you want to take a look on live?
-
 - [Live Demo Link ](https://diegogagan2587.github.io/JavaScript-Capstone-Project/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -103,8 +97,6 @@ https://youtu.be/1iS0Mq1S6QE
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
-
-> Do you want to get a local copy of this repo?
 
 To get a local copy up and running, follow these steps.
 
@@ -169,8 +161,6 @@ npm run build;
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Dievo Vidal Lopez**
 
 - GitHub: [@Diegogagan2587](https://github.com/Diegogagan2587)
@@ -188,8 +178,6 @@ npm run build;
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
 
 - [ ] **We are wating to improve the user interface soon!**
 
@@ -210,17 +198,13 @@ Feel free to check the [issues page](https://github.com/Diegogagan2587/JavaScrip
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Would you like to support?
-
-If you like this project please give us an star.
+If you like this project please give us a star.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Capstone project suggested by Microverse
 
 thanks to Microverse for suggesting this project.
 
