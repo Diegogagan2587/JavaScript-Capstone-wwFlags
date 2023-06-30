@@ -87,7 +87,7 @@ const displayPopUp = async (event) => {
     const itemID = countryName;
     const user = event.target.parentNode.querySelector('#your-name').value;
     const comment = event.target.parentNode.querySelector('#input-your-comments').value;
-    const commentsBox = event.target.parentNode.parentNode.querySelector('.comments-box').querySelector('.comments-list')
+    const commentsBox = event.target.parentNode.parentNode.querySelector('.comments-box').querySelector('.comments-list');
     postComments(itemID, user, comment, commentsBox);
   });
 };

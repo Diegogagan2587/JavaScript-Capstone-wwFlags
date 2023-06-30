@@ -2,7 +2,7 @@ const appID = 'yY6kfgXjWJt5yNZEfFYH';
 
 const commentsURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/comments`;
 
-const postComments = async (itemID, user, comment , container) => {
+const postComments = async (itemID, user, comment, container) => {
   const request = await fetch(commentsURL, {
     method: 'POST',
     body: JSON.stringify({
