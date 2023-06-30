@@ -109,6 +109,16 @@ footer {
 }
 
 @media screen and (max-width: 550px) {
+  nav {
+    padding-left: 4%;
+    font-size: inherit;
+    width: 100%;
+  }
+
+  #footer {
+    font-size: 1rem;
+  }
+
   .main-general-container {
     grid-template-columns: 1fr;
   }
