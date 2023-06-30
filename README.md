@@ -96,7 +96,7 @@ https://youtu.be/1iS0Mq1S6QE
 
 > Do you want to take a look on live?
 
-- [Live Demo Link will be availabe soon](#)
+- [Live Demo Link ](https://diegogagan2587.github.io/JavaScript-Capstone-Project/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
