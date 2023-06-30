@@ -47,7 +47,7 @@ https://youtu.be/1iS0Mq1S6QE
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
+> We have used to build this project:
 
 <details>
   <summary>Helper Tools</summary>
